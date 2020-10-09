@@ -3,6 +3,8 @@ import axios from 'axios';
 
 
 
+
+
 export const searchJobs = text => dispatch => {
   dispatch ({
     type: SEARCH_JOBS,
@@ -11,8 +13,8 @@ export const searchJobs = text => dispatch => {
 };
 
 
-export const fetchJobs = (text, description, fulltime, location, page) => dispatch => {
-  axios.get(`https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=${description}&full_time=${fulltime}&location=${location}&page=${page}&s=${text}`)
+export const fetchJobs = (text, python = [], Fulltime = [], location = [] ) => dispatch => {
+  axios.get(`https://jobs.github.com/positions.json?description=${python}&full_time=${Fulltime}&location=${location}&page=${1}&s=${text}`)
   .then(response => dispatch({
     type: FETCH_JOBS,
     payload: response.data
@@ -20,4 +22,7 @@ export const fetchJobs = (text, description, fulltime, location, page) => dispat
        )
   
   .catch(err => console.log(err));
+  
 };
+
+

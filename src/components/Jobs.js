@@ -7,6 +7,7 @@ class Jobs extends Component {
   
   onChange = e => {
     this.props.searchJobs(e.target.value);
+   
   };
   
   onSubmit = e => {
@@ -21,7 +22,7 @@ class Jobs extends Component {
             <div className="row cat_search">
                 <div className="col-lg-3 col-md-4">
                     <div className="single_input" onSubmit={this.onSubmit}>
-                        <input type="text" placeholder="Search keyword" 
+                        <input type="text" ref={this.keyword}placeholder="Search keyword" 
                   onChange={this.onChange} />
       
                     </div>
@@ -29,7 +30,7 @@ class Jobs extends Component {
                 <div className="col-lg-3 col-md-4">
                     <div className="single_input" onSubmit={this.onSubmit}>
                             <input type="text" placeholder="Location" 
-                      onChange={this.onChange}/>
+                      onChange={this.onChange} />
                     </div>
                 </div>
                <div className="col-lg-3 col-md-4">
@@ -41,7 +42,7 @@ class Jobs extends Component {
                     </div>
                 </div>
                 <div className="col-lg-3 col-md-12">
-                    <div className="job_btn">
+                    <div className="job_btn"onSubmit={this.onSubmit} >
                         <a href="#" className="boxed-btn3">Find Job</a>
                     </div>
                 </div>
@@ -50,8 +51,6 @@ class Jobs extends Component {
         </div>
     </div>
       
-       
-                   
     
     );
   }

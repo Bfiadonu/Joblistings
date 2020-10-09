@@ -19,8 +19,9 @@ function App() {
     <Header />
     <div>
       
+    <Jobs />
     <Switch>
-        <Route exact path="/jobs" component={Jobs} />
+       
         <Route path="/single" component={Single} />
         
       </Switch>
