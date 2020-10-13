@@ -19,11 +19,11 @@ function App() {
     <Header />
     <div>
       
-    <Jobs />
+ 
+   
     <Switch>
-       
-        <Route path="/single" component={Single} />
-        
+       <Route exact path="/" component={Jobs} />
+        <Route path="/single" component={Single} />  
       </Switch>
   
     
