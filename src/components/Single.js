@@ -16,7 +16,7 @@ class Single extends Component {
                                     <img src="img/svg_icon/1.svg" alt="" />
                                 </div>
                                 <div className="jobs_conetent">
-                                    <a href="#"><h4>Software Engineer</h4></a>
+                                   <h4>Software Engineer</h4>
                                     <div className="links_locat d-flex align-items-center">
                                         <div className="location">
                                             <p> <i className="fa fa-map-marker"></i> California, USA</p>
@@ -29,7 +29,7 @@ class Single extends Component {
                             </div>
                             <div className="jobs_right">
                                 <div className="apply_now">
-                                    <a className="heart_mark" href="#"> <i className="ti-heart"></i> </a>
+                               
                                 </div>
                             </div>
                         </div>

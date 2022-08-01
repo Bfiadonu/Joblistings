@@ -1,28 +1,45 @@
-import {SEARCH_JOBS, FETCH_JOBS} from './types';
+import {SEARCH_JOB, FETCH_JOBS, FETCH_JOB, LOADING} from './types';
 import axios from 'axios';
 
 
 
 
 
-export const searchJobs = text => dispatch => {
+export const searchJob = text => dispatch => {
   dispatch ({
-    type: SEARCH_JOBS,
+    type: SEARCH_JOB,
     payload: text
   });
 };
 
 
-export const fetchJobs = (text, python = [], Fulltime = [], location = [] ) => dispatch => {
-  axios.get(`https://jobs.github.com/positions.json?description=${python}&full_time=${Fulltime}&location=${location}&page=${1}&s=${text}`)
+export const fetchJobs = (text ) => dispatch => {
+  axios.get(`https://remotive.com/api/remote-jobs?limit=10&search=${text}&category=${text}`)
   .then(response => dispatch({
     type: FETCH_JOBS,
-    payload: response.data
+        payload: response.data.jobs
   })
        )
   
   .catch(err => console.log(err));
   
 };
+
+export const fetchJob = id => dispatch => {
+  axios.get(`https://remotive.com/api/remote-jobs?s=${id}`)
+  .then(response => dispatch ({
+      type: FETCH_JOB,
+      payload: response.data
+  }))
+  .catch(err => console.log(err));
+
+}
+
+export const setLoading = () => {
+  return {
+      type: LOADING
+
+  }
+}
 
 

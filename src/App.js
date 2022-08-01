@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react'
 import {Provider} from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Jobs from './components/Jobs';
-import Single from './components/Single';
+import Header from './components/layout/Header'
+import Footer from './components/layout/Footer';
+import Landing from './components/Home/Landing';
+import Job from './components/Home/Job'
 import store from './store';
 
 
 
 import './App.css';
 
-function App() {
+export class App extends Component {
+  render(){
   return (
   <Provider store={store}>
     <div className="App">
@@ -22,8 +23,8 @@ function App() {
  
    
     <Switch>
-       <Route exact path="/" component={Jobs} />
-        <Route path="/single" component={Single} />  
+       <Route exact path="/" component={Landing} />
+        <Route path="/job" component={Job} />  
       </Switch>
   
     
@@ -34,6 +35,7 @@ function App() {
     </div>
   </Provider>   
   );
+  }
 }
 
 export default App;
